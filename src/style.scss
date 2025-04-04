@@ -1,0 +1,59 @@
+.custom-gap-20{
+    gap: 10px;
+}
+
+// navbar crate btn
+.custom-nav-create{
+background-color: rgb(231, 231, 231);
+border-style: none;
+color: black;
+border-radius: 50px;
+padding-left: 0.6rem;
+padding-right: 1.2rem;
+height: 2.5rem;
+text-align: center;
+display: flex;
+align-items: center;
+    .small-text{
+        font-size: 0.8rem;
+    }
+    .big-text{
+        font-size: 1.8rem;
+        line-height: 1;
+    }
+}
+.custom-nav-create:hover{
+    background-color: rgb(206, 206, 206);
+    color: black;
+}
+.custom-nav-create:active {
+    background-color: rgb(185, 185, 185);
+    color: black;
+}
+
+// navbar notify btn
+.custom-nav-notify{
+    padding: 0.8rem;
+    line-height: 1;
+    border-radius: 50px;
+    font-size: 1.3rem;
+    border-style: none;
+}
+.custom-nav-notify:hover{
+    background-color: rgb(206, 206, 206);
+    color: black;
+}
+.custom-nav-notify:active {
+    background-color: rgb(185, 185, 185);
+    color: black;
+}
+
+// navbar notify btn
+.custom-nav-profile{
+    background-color: red;
+    padding: 1rem;
+    border-radius: 50px;
+    border-style: none;
+    height: 2rem;
+    width: 2rem;
+}

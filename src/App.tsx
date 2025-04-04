@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import VideoPage from "./pages/VideoPage";
+import './App.css';
+import './style.scss';
 
 export default function App() {
   return (
