@@ -1,0 +1,149 @@
+.custom-gap-10 {
+    gap: 10px;
+}
+
+// navbar crate btn
+.custom-nav-create {
+    background-color: rgb(231, 231, 231);
+    border-style: none;
+    color: black;
+    border-radius: 50px;
+    padding-left: 0.6rem;
+    padding-right: 1.2rem;
+    height: 2.5rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+
+    .small-text {
+        font-size: 0.8rem;
+    }
+
+    .big-text {
+        font-size: 1.8rem;
+        line-height: 1;
+    }
+}
+
+.custom-nav-create:hover {
+    background-color: rgb(206, 206, 206);
+    color: black;
+}
+
+.custom-nav-create:active {
+    background-color: rgb(185, 185, 185);
+    color: black;
+}
+
+// navbar notify btn
+.custom-nav-notify {
+    padding: 0.8rem;
+    line-height: 1;
+    border-radius: 50px;
+    font-size: 1.3rem;
+    border-style: none;
+}
+
+.custom-nav-notify:hover {
+    background-color: rgb(206, 206, 206);
+    color: black;
+}
+
+.custom-nav-notify:active {
+    background-color: rgb(185, 185, 185);
+    color: black;
+}
+
+// navbar notify btn
+.custom-nav-profile {
+    background-color: red;
+    padding: 1rem;
+    border-radius: 50px;
+    border-style: none;
+    height: 2rem;
+    width: 2rem;
+}
+
+// navbar search input
+.custom-nav-search {
+    border-radius: 50px;
+    overflow: hidden;
+    border: 1px solid #bbbbbb;
+    line-height: 1;
+
+    .search-input{
+        border: none;
+        border-radius: 0;
+    }
+    .search-button{
+        border: none;
+        border-left: 2px solid #bbbbbb;
+        border-radius: 0;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        color: #000;
+        background-color: rgb(240, 240, 240);
+    }
+    .search-button:hover,.search-button:active{
+        color: #000;
+        background-color: rgb(219, 219, 219);
+        border-left: 2px solid #bbbbbb;
+    }
+}
+
+// navbar microphone
+.custom-nav-microphone {
+    background-color: rgb(231, 231, 231);
+    padding: 0.8rem;
+    line-height: 1;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    border-style: none;
+}
+.custom-nav-microphone:hover {
+    background-color: rgb(206, 206, 206);
+}
+.custom-nav-microphone:active {
+    background-color: rgb(185, 185, 185);
+}
+
+//logo
+.custom-nav-logo{
+    display: flex;
+    gap: 0.2rem;
+    align-items: center;
+
+    .custom-icon{
+        color:red;
+    }
+}
+
+.custom-nav-listbutton{
+    margin: auto;
+    margin-right: 1.5rem;
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    border-radius: 50px;
+    display: flex;
+}
+.custom-nav-listbutton:hover{
+    background-color: rgb(206, 206, 206);
+}
+
+
+//category
+.custom-nav-category{
+    background-color: rgb(231, 231, 231) !important;
+    border-radius: 8px;
+    line-height: 1;
+    font-size: 0.8rem !important;
+}
+.custom-nav-category:hover{
+    background-color: rgb(206, 206, 206) !important;
+}
+.custom-nav-category:focus{
+    background-color: black !important;
+    color: white !important;
+}
