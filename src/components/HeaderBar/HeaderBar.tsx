@@ -1,14 +1,11 @@
 import { Container, FormControl, InputGroup, Nav, Navbar } from "react-bootstrap";
 import './HeaderBar.scss'
-import { useState } from "react";
 
 const HeaderBar = () => {
 
-  const [isOpen, setIsOpen] = useState(false);
-  const toggleMenu = () => { setIsOpen(!isOpen); }
 
   return (
-    <Navbar bg="light" variant="light" fixed="top">
+    <><Navbar bg="light" variant="light" fixed="top">
       <Container fluid className="d-flex justify-content-between align-items-center">
 
         <div className="d-flex align-item-center">
@@ -27,8 +24,7 @@ const HeaderBar = () => {
               <FormControl
                 type="text"
                 placeholder="ค้นหา"
-                className="search-input"
-              />
+                className="search-input" />
               <button className="search-button">
                 <i className="bi bi-search"></i>
               </button>
@@ -73,8 +69,9 @@ const HeaderBar = () => {
           <Nav.Link className="custom-nav-category" href="#">วิดีโอใหม่สำหรับคุณ</Nav.Link>
         </Nav>
       </Navbar>
-
     </Navbar>
+
+    </>
 
     
   );
