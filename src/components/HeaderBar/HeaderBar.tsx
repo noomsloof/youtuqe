@@ -1,7 +1,46 @@
 import { Container, FormControl, InputGroup, Nav, Navbar } from "react-bootstrap";
 import './HeaderBar.scss'
+import React, { useState } from "react";
+import { FaBars, FaYoutube } from "react-icons/fa";
+import { IoMdDownload, IoMdHome } from "react-icons/io";
+import { SiYoutubemusic, SiYoutubeshorts } from "react-icons/si";
+import { MdOutlineSubscriptions } from "react-icons/md";
+import { CgProfile } from "react-icons/cg";
 
-const HeaderBar = () => {
+type SideBarProps = {
+  isOpen: boolean; // รับค่า isOpen จาก parent component 
+  toggleSidebar: () => void; // รับฟังก์ชัน toggleSidebar จาก parent component
+};
+
+const HeaderBar: React.FC<SideBarProps> = ({ isOpen, toggleSidebar }) => {
+
+  const menuItems = [
+    {
+      label: 'Home',
+      icon: <IoMdHome />,
+      submenus: [],
+    },
+    {
+      label: 'Shorts',
+      icon: <SiYoutubeshorts />,
+    },
+    {
+      label: 'Subscribe',
+      icon: <MdOutlineSubscriptions />,
+    },
+    {
+      label: 'Music',
+      icon: <SiYoutubemusic />,
+    },
+    {
+      label: 'You',
+      icon: <CgProfile />,
+    },
+    {
+      label: 'Download',
+      icon: <IoMdDownload />,
+    },
+  ];
 
 
   return (
@@ -10,9 +49,12 @@ const HeaderBar = () => {
 
         <div className="d-flex align-item-center">
 
+          <div className="d-flex justify-content-between">
+            <button className="custom-nav-listbutton" onClick={toggleSidebar}> <FaBars color="black" /> </button>
+          </div>
           <Navbar.Brand href="#home">
             <div className="custom-nav-logo">
-              <i className="bi bi-caret-right-square-fill custom-icon"></i>
+              <FaYoutube className="custom-icon" />
               <div> Youtuqe </div>
             </div>
           </Navbar.Brand>
@@ -40,40 +82,71 @@ const HeaderBar = () => {
         </div>
 
       </Container>
-
-      <Navbar
-        bg="light"
-        variant="light"
-        style={{
-          position: 'fixed',
-          top: '62px',
-          zIndex: 1029,
-          height: '46px',
-          width: '100%',
-        }}
-      >
-        <Nav className="custom-gap-10">
-          <Nav.Link className="custom-nav-category" href="#">ทั้งหมด</Nav.Link>
-          <Nav.Link className="custom-nav-category" href="#">เกม</Nav.Link>
-          <Nav.Link className="custom-nav-category" href="#">เพลง</Nav.Link>
-          <Nav.Link className="custom-nav-category" href="#">มิกซ์</Nav.Link>
-          <Nav.Link className="custom-nav-category" href="#">ข่าวสาร</Nav.Link>
-          <Nav.Link className="custom-nav-category" href="#">ไลฟ์สด</Nav.Link>
-          <Nav.Link className="custom-nav-category" href="#">พอตแคสต์</Nav.Link>
-          <Nav.Link className="custom-nav-category" href="#">บาสเก็ตบอล</Nav.Link>
-          <Nav.Link className="custom-nav-category" href="#">กีฬา</Nav.Link>
-          <Nav.Link className="custom-nav-category" href="#">เกมแอ็กชันผจญภัย</Nav.Link>
-          <Nav.Link className="custom-nav-category" href="#">การทำอาหาร</Nav.Link>
-          <Nav.Link className="custom-nav-category" href="#">อัพโหลดล่าสุด</Nav.Link>
-          <Nav.Link className="custom-nav-category" href="#">ดูแล้ว</Nav.Link>
-          <Nav.Link className="custom-nav-category" href="#">วิดีโอใหม่สำหรับคุณ</Nav.Link>
-        </Nav>
-      </Navbar>
     </Navbar>
 
-    </>
+      <div className="d-flex" style={{ position: 'fixed', }}>
+        <div
+          className={`bg-light text-black vh-100 p-3 transition-width ${isOpen ? 'sidebar-expanded' : 'sidebar-collapsed'
+            }`}
+          style={{
+            width: isOpen ? '250px' : '100px',
+            transition: 'width 0s',
+            marginTop: '54px',
+          }}
+        >
+          <ul className="nav flex-column custom-sidebar">
+            {menuItems.map((item) => (
+              <li key={item.label} className="nav-item mb-1">
+                <div
+                  className="nav-link text-black d-flex"
+                  role="button"
+                >
+                  <div className="d-flex flex-column align-items-center" style={{ height: '100%', width: '100%' }}>
+                    <div>
+                      {item.icon}
+                    </div>
+                    <div className="custom-sidebar-smallfont">{item.label}</div>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-    
+        <div>
+          <Navbar
+            bg="light"
+            variant="light"
+            style={{
+              position: 'fixed',
+              top: '62px',
+              zIndex: 1029,
+              height: '46px',
+              width: '100%',
+              paddingLeft: '1rem',
+            }}
+          >
+            <Nav className="custom-gap-10">
+              <Nav.Link className="custom-nav-category" href="#">ทั้งหมด</Nav.Link>
+              <Nav.Link className="custom-nav-category" href="#">เกม</Nav.Link>
+              <Nav.Link className="custom-nav-category" href="#">เพลง</Nav.Link>
+              <Nav.Link className="custom-nav-category" href="#">มิกซ์</Nav.Link>
+              <Nav.Link className="custom-nav-category" href="#">ข่าวสาร</Nav.Link>
+              <Nav.Link className="custom-nav-category" href="#">ไลฟ์สด</Nav.Link>
+              <Nav.Link className="custom-nav-category" href="#">พอตแคสต์</Nav.Link>
+              <Nav.Link className="custom-nav-category" href="#">บาสเก็ตบอล</Nav.Link>
+              <Nav.Link className="custom-nav-category" href="#">กีฬา</Nav.Link>
+              <Nav.Link className="custom-nav-category" href="#">เกมแอ็กชันผจญภัย</Nav.Link>
+              <Nav.Link className="custom-nav-category" href="#">การทำอาหาร</Nav.Link>
+              <Nav.Link className="custom-nav-category" href="#">อัพโหลดล่าสุด</Nav.Link>
+              <Nav.Link className="custom-nav-category" href="#">ดูแล้ว</Nav.Link>
+              <Nav.Link className="custom-nav-category" href="#">วิดีโอใหม่สำหรับคุณ</Nav.Link>
+            </Nav>
+          </Navbar>
+
+        </div>
+      </div>
+    </>
   );
 };
 
