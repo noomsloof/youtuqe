@@ -24,20 +24,39 @@ export default function Home() {
 
   return (
     <>
+
       <HeaderBar isOpen={isOpen} toggleSidebar={toggleSidebar} />
-      <div style={dynamicSpace}>
-        <div>
-          {videos.map((video) => (
-            <div key={video.id}>
-              <Link to={`/watch/${video.id}`}>
-                <img src={video.snippet.thumbnails.medium.url} alt={video.snippet.title} />
-                <h3>{video.snippet.title}</h3>
-              </Link>
-            </div>
+      <div className="home-layout-grid">
+        <div style={dynamicSpace}>
 
-          ))}
+          <div className="home-layout-grid-content">
+
+            <div className="content-card"></div>
+            <div className="content-card"></div>
+            <div className="content-card"></div>
+            <div className="content-card"></div>
+            <div className="content-card"></div>
+            <div className="content-card"></div>
+            <div className="content-card"></div>
+            <div className="content-card"></div>
+            <div className="content-card"></div>
+            <div className="content-card"></div>
+
+          </div>
+
+          <div>
+            {videos.map((video) => (
+              <div key={video.id}>
+                <Link to={`/watch/${video.id}`}>
+                  <img src={video.snippet.thumbnails.medium.url} alt={video.snippet.title} />
+                  <h3>{video.snippet.title}</h3>
+                </Link>
+              </div>
+            ))}
+          </div>
+
         </div>
-      </div></>
-
+      </div>
+    </>
   );
 }

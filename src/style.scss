@@ -1,0 +1,17 @@
+.home-layout-grid{
+    grid-template-columns: 100px 1fr;
+    grid-template-rows: 115px 1fr;
+
+    .home-layout-grid-content{
+        display: flex;
+        flex-wrap: wrap;
+        // justify-content: center;
+        gap: 1rem;
+
+        .content-card{
+            background-color: red;
+            height: 400px;
+            width: 400px;
+        }
+    }
+}
