@@ -1,29 +1,49 @@
 .home-layout {
-    display: grid;
-    grid-template-columns: 100px 1fr;
-    grid-template-rows: 100px 1fr;
-
+    display: flex;
+    margin-top: 130px;
     .content-layout {
+        width: 100%;
         display: grid;
-        grid-column: 2/3;
-        grid-row: 2/3;
         grid-template-columns: repeat(auto-fill, 25rem);
-
+        gap: 20px;
+        justify-content: start;
+        align-content: start;
         .content-card {
-            background-color: red;
+            display: grid;
+            grid-template-rows: auto auto;
+            // border-style: groove;
+            // background-color: red;
             width: 25rem;
-
             .img-card {
                 grid-row: 1/2;
-                background-color: blue;
+                // background-color: blue;
+
+                img {
+                    width: 100%;
+                    border-radius: 20px;
+                    object-fit: cover;
+                  }
             }
 
             .text-card {
-                grid-row: 2/3;
-                background-color: yellow;
+                // background-color: yellow;
+                display: flex;
+                margin-top: 8px;
+                .title-card{
+                    font-size: 1rem;
+                    font-weight: bold;
+                }
+                .channel-card{
+                    font-size: 1rem;
+                    font-weight: bold;
+                    color: rgb(126, 126, 126);
+                }
             }
         }
     }
 
-
+    a {
+        text-decoration: none;
+        color: rgb(48, 48, 48);
+      }
 }
