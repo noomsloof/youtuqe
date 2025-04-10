@@ -1,17 +1,29 @@
-.home-layout-grid{
+.home-layout {
+    display: grid;
     grid-template-columns: 100px 1fr;
-    grid-template-rows: 115px 1fr;
+    grid-template-rows: 100px 1fr;
 
-    .home-layout-grid-content{
-        display: flex;
-        flex-wrap: wrap;
-        // justify-content: center;
-        gap: 1rem;
+    .content-layout {
+        display: grid;
+        grid-column: 2/3;
+        grid-row: 2/3;
+        grid-template-columns: repeat(auto-fill, 25rem);
 
-        .content-card{
+        .content-card {
             background-color: red;
-            height: 400px;
-            width: 400px;
+            width: 25rem;
+
+            .img-card {
+                grid-row: 1/2;
+                background-color: blue;
+            }
+
+            .text-card {
+                grid-row: 2/3;
+                background-color: yellow;
+            }
         }
     }
+
+
 }

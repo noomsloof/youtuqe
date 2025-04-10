@@ -17,42 +17,32 @@ export default function Home() {
   }, []);
 
   const dynamicSpace = {
-    marginTop: isOpen ? '130px' : '130px', // เปลี่ยน marginTop ตาม isOpen
-    marginLeft: isOpen ? '280px' : '120px', // เปลี่ยน marginLeft ตาม isOpen
+    marginLeft: isOpen ? '280px' : '120px',
   };
 
 
   return (
     <>
+      <HeaderBar isOpen={isOpen} toggleSidebar={toggleSidebar}></HeaderBar>
 
-      <HeaderBar isOpen={isOpen} toggleSidebar={toggleSidebar} />
-      <div className="home-layout-grid">
-        <div style={dynamicSpace}>
+      <div style={dynamicSpace}>
+        <div className="home-layout">
 
-          <div className="home-layout-grid-content">
+          <div className="content-layout">
 
-            <div className="content-card"></div>
-            <div className="content-card"></div>
-            <div className="content-card"></div>
-            <div className="content-card"></div>
-            <div className="content-card"></div>
-            <div className="content-card"></div>
-            <div className="content-card"></div>
-            <div className="content-card"></div>
-            <div className="content-card"></div>
-            <div className="content-card"></div>
-
-          </div>
-
-          <div>
             {videos.map((video) => (
-              <div key={video.id}>
-                <Link to={`/watch/${video.id}`}>
-                  <img src={video.snippet.thumbnails.medium.url} alt={video.snippet.title} />
-                  <h3>{video.snippet.title}</h3>
-                </Link>
+              <div key={video.id} className="content-card">
+
+                <div className="img-card"> <img src={video.snippet.thumbnails.medium.url} alt={video.snippet.title} /> </div>
+                <div className="text-card">{video.snippet.title}</div>
+                {/* <Link to={`/watch/${video.id}`}>
+                    <img src={video.snippet.thumbnails.medium.url} alt={video.snippet.title} />
+                    <h3>{video.snippet.title}</h3>
+                  </Link> */}
               </div>
+
             ))}
+
           </div>
 
         </div>

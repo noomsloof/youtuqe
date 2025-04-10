@@ -44,54 +44,58 @@ const HeaderBar: React.FC<SideBarProps> = ({ isOpen, toggleSidebar }) => {
 
 
   return (
-    <><Navbar bg="light" variant="light" fixed="top">
-      <Container fluid className="d-flex justify-content-between align-items-center">
+    <>
+      <Navbar bg="light" variant="light" fixed="top" style={{height: '62px'}}>
+        <Container fluid className="d-flex justify-content-between align-items-center">
 
-        <div className="d-flex align-item-center">
+          <div className="d-flex align-items-center">
 
-          <div className="d-flex justify-content-between">
-            <button className="custom-nav-listbutton" onClick={toggleSidebar}> <FaBars color="black" /> </button>
-          </div>
-          <Navbar.Brand href="#home">
-            <div className="custom-nav-logo">
-              <FaYoutube className="custom-icon" />
-              <div> Youtuqe </div>
+            <div className="d-flex justify-content-between">
+              <button className="custom-nav-listbutton" onClick={toggleSidebar}> <FaBars color="black" /> </button>
             </div>
-          </Navbar.Brand>
-        </div>
+            <Navbar.Brand href="#home">
+              <div className="custom-nav-logo">
+                <FaYoutube className="custom-icon" />
+                <div> Youtuqe </div>
+              </div>
+            </Navbar.Brand>
+          </div>
 
-        <div style={{ width: "35%" }}>
-          <Nav className="ml-auto d-flex align-items-center flex-grow-1 custom-gap-10">
-            <InputGroup className="custom-nav-search">
-              <FormControl
-                type="text"
-                placeholder="ค้นหา"
-                className="search-input" />
-              <button className="search-button">
-                <i className="bi bi-search"></i>
-              </button>
-            </InputGroup>
-            <button className="custom-nav-microphone"><i className="bi bi-mic-fill"></i></button>
-          </Nav>
-        </div>
+          <div style={{ width: "35%" }}>
+            <Nav className="ml-auto d-flex align-items-center flex-grow-1 custom-gap-10">
+              <InputGroup className="custom-nav-search">
+                <FormControl
+                  type="text"
+                  placeholder="ค้นหา"
+                  className="search-input" />
+                <button className="search-button">
+                  <i className="bi bi-search"></i>
+                </button>
+              </InputGroup>
+              <button className="custom-nav-microphone"><i className="bi bi-mic-fill"></i></button>
+            </Nav>
+          </div>
 
-        <div className="d-flex align-items-center custom-gap-10">
-          <Nav><button className="custom-nav-create"> <i className="bi bi-plus big-text"></i> <p className="m-0 small-text">สร้าง</p></button></Nav>
-          <Nav><button className="custom-nav-notify"> <i className="bi bi-bell"></i> </button> </Nav>
-          <Nav><div className="custom-nav-profile"></div></Nav>
-        </div>
+          <div className="d-flex align-items-center custom-gap-10">
+            <Nav><button className="custom-nav-create"> <i className="bi bi-plus big-text"></i> <p className="m-0 small-text">สร้าง</p></button></Nav>
+            <Nav><button className="custom-nav-notify"> <i className="bi bi-bell"></i> </button> </Nav>
+            <Nav><div className="custom-nav-profile"></div></Nav>
+          </div>
 
-      </Container>
-    </Navbar>
+        </Container>
+      </Navbar>
 
       <div className="d-flex" style={{ position: 'fixed', }}>
         <div
-          className={`bg-light text-black vh-100 p-3 transition-width ${isOpen ? 'sidebar-expanded' : 'sidebar-collapsed'
+          className={`bg-light text-black vh-100 ${isOpen ? 'sidebar-expanded' : 'sidebar-collapsed'
             }`}
           style={{
             width: isOpen ? '250px' : '100px',
-            transition: 'width 0s',
-            marginTop: '54px',
+            position: 'fixed',
+            top: '62px',
+            left: 0,
+            bottom: 0,
+            zIndex: 1028
           }}
         >
           <ul className="nav flex-column custom-sidebar">
@@ -112,14 +116,16 @@ const HeaderBar: React.FC<SideBarProps> = ({ isOpen, toggleSidebar }) => {
             ))}
           </ul>
         </div>
+      </div>
 
-        <div>
+      <div>
           <Navbar
             bg="light"
             variant="light"
             style={{
               position: 'fixed',
               top: '62px',
+              left: isOpen ? '250px' : '100px',
               zIndex: 1029,
               height: '46px',
               width: '100%',
@@ -145,7 +151,6 @@ const HeaderBar: React.FC<SideBarProps> = ({ isOpen, toggleSidebar }) => {
           </Navbar>
 
         </div>
-      </div>
     </>
   );
 };
